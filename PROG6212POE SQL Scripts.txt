@@ -1,0 +1,28 @@
+create database PROG6212POE;
+Use PROG6212POE;
+
+
+create table users(
+userID int auto_increment not null primary key,
+username varchar(50),
+password varchar(50)
+);
+
+create table modules(
+moduleID int auto_increment not null primary key,
+userID int,
+moduleCode varchar(10),
+moduleName varchar(50),
+Credits double,
+classHours double,
+selfStudyHours double,
+selfStudyRemain double,
+FOREIGN KEY (userID) REFERENCES users(userID)
+);
+
+create table hoursWorked(
+id int auto_increment not null primary key,
+moduleName varchar(50),
+hoursWorked int,
+dateWorked date
+);
